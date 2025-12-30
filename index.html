@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&S RealEstate | Buy, Sell & Rent Properties in Islamabad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1><i class="fas fa-building"></i> A&S RealEstate</h1>
+                <p class="tagline">Buy | Sell | Rent | Invest</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#sale">Properties for Sale</a></li>
+                <li><a href="#rental">Rentals</a></li>
+                <li><a href="#post-property">Post Property</a></li>
+                <li><a href="#admin-login"><i class="fas fa-user-lock"></i> Admin</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Property in Islamabad</h1>
+            <p>Premium Real Estate Solutions for Sale, Purchase & Rental</p>
+            <div class="hero-buttons">
+                <a href="#sale" class="btn btn-primary">Buy Property</a>
+                <a href="#rental" class="btn btn-secondary">Rent Property</a>
+                <a href="#post-property" class="btn btn-light">Sell/Rent Your Property</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Properties Sold</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6</h3>
+                    <p>Premium Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Our Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-badge">Premium</div>
+                    <div class="project-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>Bharia Enclave</h3>
+                    <p>Premium residential community with modern amenities</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">Luxury</div>
+                    <div class="project-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Park View City</h3>
+                    <p>Luxury living with panoramic views and green spaces</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">Exclusive</div>
+                    <div class="project-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Park Enclave</h3>
+                    <p>Exclusive neighborhood with premium facilities</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">Scenic</div>
+                    <div class="project-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Margalla Enclave</h3>
+                    <p>Scenic location at the foothills of Margalla</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">Green</div>
+                    <div class="project-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Margalla Orchard</h3>
+                    <p>Green living with orchard views</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">Officers</div>
+                    <div class="project-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>PHA Officers Residencia</h3>
+                    <p>Kurri Road Islamabad - Premium residences</p>
+                    <div class="project-actions">
+                        <a href="#sale" class="btn-sm">View Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties for Sale -->
+    <section id="sale" class="properties sale-properties">
+        <div class="container">
+            <h2 class="section-title">Properties for Sale</h2>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bharia">Bharia Enclave</button>
+                <button class="filter-btn" data-filter="parkview">Park View City</button>
+                <button class="filter-btn" data-filter="margalla">Margalla Projects</button>
+            </div>
+            <div class="properties-grid">
+                <!-- Property cards will be loaded by JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="#post-property" class="btn">List Your Property for Sale</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Properties -->
+    <section id="rental" class="properties rental-properties">
+        <div class="container">
+            <h2 class="section-title">Properties for Rent</h2>
+            <div class="properties-grid">
+                <!-- Rental property cards will be loaded by JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="#post-property" class="btn">List Your Property for Rent</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Property Form -->
+    <section id="post-property" class="post-property">
+        <div class="container">
+            <h2 class="section-title">Post Your Property</h2>
+            <div class="property-type-selector">
+                <button class="type-btn active" data-type="sale">For Sale</button>
+                <button class="type-btn" data-type="rent">For Rent</button>
+            </div>
+
+            <form id="propertyForm" class="property-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="propertyType">Property Type *</label>
+                        <select id="propertyType" required>
+                            <option value="">Select Type</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="plot">Plot</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Project *</label>
+                        <select id="project" required>
+                            <option value="">Select Project</option>
+                            <option value="bharia">Bharia Enclave</option>
+                            <option value="parkview">Park View City</option>
+                            <option value="parkenclave">Park Enclave</option>
+                            <option value="margallaenclave">Margalla Enclave</option>
+                            <option value="margallaorchard">Margalla Orchard</option>
+                            <option value="pha">PHA Officers Residencia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price *</label>
+                        <input type="text" id="price" placeholder="e.g., 50,000,000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size">Size (Marla/Kanal)</label>
+                        <input type="text" id="size" placeholder="e.g., 10 Marla">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select id="bedrooms">
+                            <option value="">Select</option>
+                            <option value="1">1 Bed</option>
+                            <option value="2">2 Beds</option>
+                            <option value="3">3 Beds</option>
+                            <option value="4">4 Beds</option>
+                            <option value="5">5+ Beds</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bathrooms">Bathrooms</label>
+                        <select id="bathrooms">
+                            <option value="">Select</option>
+                            <option value="1">1 Bath</option>
+                            <option value="2">2 Baths</option>
+                            <option value="3">3 Baths</option>
+                            <option value="4">4+ Baths</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" rows="4" placeholder="Describe your property..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerName">Your Name *</label>
+                    <input type="text" id="ownerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerPhone">Phone Number *</label>
+                    <input type="tel" id="ownerPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="images">Upload Images (Optional)</label>
+                    <input type="file" id="images" multiple accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-submit">Submit Property</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Admin Panel Login -->
+    <section id="admin-login" class="admin-login">
+        <div class="container">
+            <div class="admin-box">
+                <h2><i class="fas fa-user-lock"></i> Admin Panel</h2>
+                <p>Login to manage properties and listings</p>
+
+                <form id="adminForm">
+                    <div class="form-group">
+                        <label for="adminUsername">Username</label>
+                        <input type="text" id="adminUsername" placeholder="Enter username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <input type="password" id="adminPassword" placeholder="Enter password">
+                    </div>
+
+                    <button type="submit" class="btn">Login</button>
+                </form>
+
+                <div class="admin-features">
+                    <h3>Admin Features:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Approve/Reject Property Listings</li>
+                        <li><i class="fas fa-check"></i> Manage Sale Properties</li>
+                        <li><i class="fas fa-check"></i> Manage Rental Properties</li>
+                        <li><i class="fas fa-check"></i> View Contact Inquiries</li>
+                        <li><i class="fas fa-check"></i> Update Website Content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone & WhatsApp</h3>
+                        <p><a href="tel:03111544996">0311-1544996</a></p>
+                        <p class="whatsapp-note"><i class="fab fa-whatsapp"></i> Call/WhatsApp Available</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Address</h3>
+                        <p><a href="mailto:Umeraftab2948@gmail.com">Umeraftab2948@gmail.com</a></p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Contact Person</h3>
+                        <p><strong>Umer Aftab</strong></p>
+                        <p>Real Estate Consultant</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Business Hours</h3>
+                        <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                        <p>Sunday: 10:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Inquiry</h3>
+                    <form id="inquiryForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="tel" placeholder="Your Phone" required>
+                        <input type="email" placeholder="Your Email">
+                        <select required>
+                            <option value="">Interested In</option>
+                            <option value="sale">Buying Property</option>
+                            <option value="rent">Renting Property</option>
+                            <option value="sell">Selling Property</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-building"></i> A&S RealEstate</h2>
+                    <p>Premium Real Estate Solutions in Islamabad</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#sale">Buy Property</a></li>
+                        <li><a href="#rental">Rent Property</a></li>
+                        <li><a href="#post-property">Post Property</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-projects">
+                    <h3>Our Projects</h3>
+                    <ul>
+                        <li>Bharia Enclave</li>
+                        <li>Park View City</li>
+                        <li>Park Enclave</li>
+                        <li>Margalla Enclave</li>
+                        <li>Margalla Orchard</li>
+                        <li>PHA Officers Residencia</li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> 0311-1544996</p>
+                    <p><i class="fas fa-envelope"></i> Umeraftab2948@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 A&S RealEstate. All rights reserved. |
+                   <a href="#admin-login">Admin Login</a> |
+                   Developed with ❤️ by Umer Aftab</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923111544996?text=Hello!%20I'm%20interested%20in%20your%20properties"
+       class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
