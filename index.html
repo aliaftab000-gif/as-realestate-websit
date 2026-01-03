@@ -1,363 +1,324 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A&S RealEstate | Islamabad Premium Properties</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
+    <!-- Animation Overlay -->
+    <div class="animation-overlay" id="animationOverlay">
+        <div class="animation-container">
             <div class="logo-animation">
-                <div class="letter">A</div>
-                <div class="letter">&</div>
-                <div class="letter">S</div>
+                <div class="letter-a">A</div>
+                <div class="ampersand">&</div>
+                <div class="letter-s">S</div>
             </div>
-            <h1 class="animate__animated animate__pulse animate__infinite">A&S RealEstate</h1>
-            <p>Loading Premium Properties...</p>
+            <div class="company-name">RealEstate</div>
+            <div class="tagline">Premium Properties in Islamabad</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <button id="themeToggle" class="theme-btn">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-        </button>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <h1><i class="fas fa-building"></i> A&S RealEstate</h1>
-                <p class="tagline">Islamabad's Trusted Real Estate Partner</p>
+                <span class="logo-text">A&S</span>
+                <span class="logo-sub">RealEstate</span>
             </div>
-
-            <div class="nav-controls">
-                <button class="theme-toggle-btn" id="mobileThemeToggle">
-                    <i class="fas fa-adjust"></i>
-                </button>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#projects"><i class="fas fa-city"></i> Projects</a></li>
-                <li><a href="#properties"><i class="fas fa-building"></i> Properties</a></li>
-                <li><a href="#sale"><i class="fas fa-tag"></i> For Sale</a></li>
-                <li><a href="#rent"><i class="fas fa-key"></i> For Rent</a></li>
-                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="admin.html" class="admin-link"><i class="fas fa-user-shield"></i> Admin</a></li>
-                <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#societies">Societies</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section with Animation -->
-    <section id="home" class="hero">
-        <div class="hero-slider">
-            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')">
-                <div class="slide-content">
-                    <h1 class="animate__animated animate__fadeInDown">Find Your Dream Home</h1>
-                    <p class="animate__animated animate__fadeInUp">Premium Properties in Islamabad</p>
-                </div>
+            <div class="nav-contact">
+                <a href="tel:03111544966" class="call-btn"><i class="fas fa-phone"></i> Call Now</a>
             </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')">
-                <div class="slide-content">
-                    <h1>Luxury Living Spaces</h1>
-                    <p>Modern Amenities & Prime Locations</p>
-                </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <div class="hero-search">
-            <div class="search-container">
-                <input type="text" placeholder="Search properties...">
-                <select>
-                    <option value="">All Projects</option>
-                    <option value="bharia">Bharia Enclave</option>
-                    <option value="parkview">Park View City</option>
-                    <option value="parkenclave">Park Enclave</option>
-                    <option value="margallaenclave">Margalla Enclave</option>
-                    <option value="margallaorchard">Margalla Orchard</option>
-                    <option value="pha">PHA Officers Residencia</option>
-                </select>
-                <button class="search-btn"><i class="fas fa-search"></i> Search</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your <span class="highlight">Dream Property</span> in Islamabad</h1>
+                <p class="hero-subtitle">Exclusive access to premium societies with verified listings and professional guidance</p>
+                <div class="hero-buttons">
+                    <a href="#societies" class="btn btn-primary">View Societies</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Premium Societies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Properties</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-slider">
+                    <div class="slide active">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Islamabad Property">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Stats -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card animate__animated" data-animation="fadeInUp">
+    <!-- Societies Section -->
+    <section class="societies-section" id="societies">
+        <div class="section-header">
+            <h2 class="section-title">Featured Societies</h2>
+            <p class="section-subtitle">Explore Islamabad's most premium residential communities</p>
+        </div>
+
+        <div class="societies-container">
+            <!-- Society cards will be dynamically loaded here -->
+        </div>
+
+        <div class="section-footer">
+            <p>Interested in any society? Contact us for sale, purchase, and rental opportunities</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive real estate solutions</p>
+        </div>
+
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
                     <i class="fas fa-home"></i>
-                    <h3 data-count="500">0</h3>
-                    <p>Properties Sold</p>
                 </div>
-                <div class="stat-card animate__animated" data-animation="fadeInUp">
-                    <i class="fas fa-smile"></i>
-                    <h3 data-count="200">0</h3>
-                    <p>Happy Clients</p>
-                </div>
-                <div class="stat-card animate__animated" data-animation="fadeInUp">
-                    <i class="fas fa-city"></i>
-                    <h3 data-count="6">0</h3>
-                    <p>Premium Projects</p>
-                </div>
-                <div class="stat-card animate__animated" data-animation="fadeInUp">
-                    <i class="fas fa-award"></i>
-                    <h3 data-count="10">0</h3>
-                    <p>Years Experience</p>
-                </div>
+                <h3 class="service-title">Property Sales</h3>
+                <p class="service-description">Find your perfect home from our verified listings in premium societies</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Projects Gallery -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Our Premium Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bharia Enclave">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Bharia Enclave</h3>
-                        <p>Premium residential community with modern amenities and 24/7 security</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search-dollar"></i>
                 </div>
-
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Park View City">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Park View City</h3>
-                        <p>Luxury living with panoramic views and green spaces</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Park Enclave">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Park Enclave</h3>
-                        <p>Exclusive neighborhood with premium facilities</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Margalla Enclave">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Margalla Enclave</h3>
-                        <p>Scenic location at the foothills of Margalla</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1416331108676-a22ccb276e35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Margalla Orchard">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Margalla Orchard</h3>
-                        <p>Green living with orchard views</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate__animated" data-animation="zoomIn">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="PHA Officers Residencia">
-                        <div class="project-overlay">
-                            <a href="#" class="view-btn">View Properties</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>PHA Officers Residencia</h3>
-                        <p>Kurri Road Islamabad - Premium residences</p>
-                        <div class="project-features">
-                            <span><i class="fas fa-map-marker-alt"></i> Islamabad</span>
-                            <span><i class="fas fa-check-circle"></i> Approved</span>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="service-title">Property Purchase</h3>
+                <p class="service-description">Expert guidance through the entire purchase process</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Properties Section -->
-    <section id="properties" class="properties">
-        <div class="container">
-            <h2 class="section-title">Featured Properties</h2>
-            <div class="property-filters">
-                <button class="filter-btn active" data-filter="all">All Properties</button>
-                <button class="filter-btn" data-filter="sale">For Sale</button>
-                <button class="filter-btn" data-filter="rent">For Rent</button>
-                <button class="filter-btn" data-filter="featured">Featured</button>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3 class="service-title">Rentals</h3>
+                <p class="service-description">Short-term and long-term rental options in prime locations</p>
             </div>
-            <div class="properties-container">
-                <!-- Properties will be loaded from JavaScript -->
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="service-title">Consultation</h3>
+                <p class="service-description">Personalized advice for your real estate investments</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-card animate__animated" data-animation="fadeInLeft">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Call Us</h3>
-                        <p><a href="tel:03111544996">0311-1544996</a></p>
-                        <p class="whatsapp-link"><i class="fab fa-whatsapp"></i> Available on WhatsApp</p>
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Contact Our Team</h2>
+            <p class="section-subtitle">Get in touch for sale, purchase, and rental inquiries</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div class="contact-card animate__animated" data-animation="fadeInLeft">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email Us</h3>
-                        <p><a href="mailto:Umeraftab2948@gmail.com">Umeraftab2948@gmail.com</a></p>
-                    </div>
-                    <div class="contact-card animate__animated" data-animation="fadeInLeft">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Contact Person</h3>
-                        <p><strong>Umer Aftab</strong></p>
-                        <p>Real Estate Consultant</p>
+                    <h3 class="contact-name">Umer Aftab</h3>
+                    <div class="contact-details">
+                        <a href="tel:03111544966"><i class="fas fa-phone"></i> 0311-1544966</a>
+                        <a href="https://wa.me/923111544966" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:umeraftab2948@gmail.com"><i class="fas fa-envelope"></i> umeraftab2948@gmail.com</a>
                     </div>
                 </div>
-                <div class="contact-form animate__animated" data-animation="fadeInRight">
-                    <h3>Send Message</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="tel" placeholder="Phone Number" required>
-                        <input type="email" placeholder="Email Address">
-                        <select required>
-                            <option value="">Interested In</option>
-                            <option value="bharia">Bharia Enclave</option>
-                            <option value="parkview">Park View City</option>
-                            <option value="parkenclave">Park Enclave</option>
-                            <option value="margallaenclave">Margalla Enclave</option>
-                            <option value="margallaorchard">Margalla Orchard</option>
-                            <option value="pha">PHA Officers Residencia</option>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="contact-name">Bilal Aftab</h3>
+                    <div class="contact-details">
+                        <a href="tel:03115496970"><i class="fas fa-phone"></i> 0311-5496970</a>
+                        <a href="https://wa.me/923115496970" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <span><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</span>
+                    </div>
+                </div>
+
+                <div class="contact-methods">
+                    <h3>Quick Contact Methods</h3>
+                    <div class="method-buttons">
+                        <a href="https://wa.me/923111544966" class="method-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Umer
+                        </a>
+                        <a href="tel:03111544966" class="method-btn call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="mailto:umeraftab2948@gmail.com" class="method-btn email">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="society" required>
+                            <option value="" disabled selected>Select Society of Interest</option>
+                            <option value="Bharia Enclave">Bharia Enclave</option>
+                            <option value="Park View City">Park View City</option>
+                            <option value="Park Enclave">Park Enclave</option>
+                            <option value="Margalla Enclave">Margalla Enclave</option>
+                            <option value="Margalla Orchard">Margalla Orchard</option>
+                            <option value="PHA Officers Residencia">PHA Officers Residencia</option>
                         </select>
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" required>
+                            <option value="" disabled selected>Service Required</option>
+                            <option value="Sale">Purchase</option>
+                            <option value="Purchase">Sale</option>
+                            <option value="Rental">Rental</option>
+                            <option value="Consultation">Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3><i class="fas fa-building"></i> A&S RealEstate</h3>
-                    <p>Your trusted partner for premium real estate in Islamabad. We provide the best properties in prime locations.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-text">A&S</span>
+                    <span class="logo-sub">RealEstate</span>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#properties">Properties</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="admin.html">Admin Panel</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Our Projects</h3>
-                    <ul>
-                        <li>Bharia Enclave</li>
-                        <li>Park View City</li>
-                        <li>Park Enclave</li>
-                        <li>Margalla Enclave</li>
-                        <li>Margalla Orchard</li>
-                        <li>PHA Officers Residencia</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> 0311-1544996</p>
-                    <p><i class="fas fa-envelope"></i> Umeraftab2948@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+                <p class="footer-description">Your trusted partner for premium real estate in Islamabad</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/923111544966"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 A&S RealEstate. All rights reserved. | Developed with ❤️ by Umer Aftab</p>
+
+            <div class="footer-links">
+                <h3>Societies</h3>
+                <ul>
+                    <li><a href="#" data-society="bharia">Bharia Enclave</a></li>
+                    <li><a href="#" data-society="parkview">Park View City</a></li>
+                    <li><a href="#" data-society="park">Park Enclave</a></li>
+                    <li><a href="#" data-society="margalla">Margalla Enclave</a></li>
+                    <li><a href="#" data-society="orchard">Margalla Orchard</a></li>
+                    <li><a href="#" data-society="pha">PHA Officers Residencia</a></li>
+                </ul>
             </div>
+
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0311-1544966 (Umer)</li>
+                    <li><i class="fas fa-phone"></i> 0311-5496970 (Bilal)</li>
+                    <li><i class="fas fa-envelope"></i> umeraftab2948@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 A&S RealEstate. All rights reserved. | Designed for Islamabad Properties</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/923111544996" class="whatsapp-float" target="_blank">
+    <!-- Society Modal -->
+    <div class="modal-overlay" id="societyModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalSocietyName"></h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery" id="modalGallery">
+                    <!-- Gallery images loaded via JS -->
+                </div>
+                <div class="modal-content">
+                    <div class="modal-description" id="modalDescription">
+                        <!-- Description loaded via JS -->
+                    </div>
+                    <div class="modal-location">
+                        <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                        <div class="map-container">
+                            <div id="modalMap"></div>
+                        </div>
+                    </div>
+                    <div class="modal-contact">
+                        <h3>Interested in this society?</h3>
+                        <p>Contact us for sale, purchase, and rental opportunities</p>
+                        <div class="modal-buttons">
+                            <a href="https://wa.me/923111544966" class="btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Now
+                            </a>
+                            <a href="tel:03111544966" class="btn call-btn">
+                                <i class="fas fa-phone"></i> Call Umer Aftab
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923111544966" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
+        <span>Chat with Us</span>
     </a>
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
