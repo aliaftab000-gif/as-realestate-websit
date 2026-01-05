@@ -1,369 +1,441 @@
-// Society Data with 10 images each (using Unsplash for demonstration)
-const societies = [
-    {
-        id: "bharia",
-        name: "Bharia Enclave",
-        location: "Islamabad, Pakistan",
-        description: "Bharia Enclave is a premium residential society offering modern amenities and a secure environment. With well-planned infrastructure, lush green parks, and commercial areas, it provides a perfect blend of comfort and convenience for families.",
-        features: ["Gated Community", "24/7 Security", "Parks", "Commercial Area", "Mosque"],
-        coordinates: [33.6844, 73.0479],
-        images: [
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    },
-    {
-        id: "parkview",
-        name: "Park View City",
-        location: "Islamabad, Pakistan",
-        description: "Park View City is Islamabad's most sought-after residential project, featuring state-of-the-art facilities, beautiful landscapes, and a strategic location. Offering various plot sizes and payment plans, it's an ideal investment opportunity.",
-        features: ["Modern Infrastructure", "Landscaped Parks", "Gymnasium", "Shopping Mall", "School"],
-        coordinates: [33.6209, 73.1259],
-        images: [
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    },
-    {
-        id: "park",
-        name: "Park Enclave",
-        location: "Islamabad, Pakistan",
-        description: "Park Enclave offers luxury living with premium amenities including clubhouse, sports facilities, and beautifully designed landscapes. Its prime location and exclusive environment make it a top choice for elite residents.",
-        features: ["Luxury Villas", "Clubhouse", "Swimming Pool", "Sports Complex", "24/7 Security"],
-        coordinates: [33.7091, 73.0531],
-        images: [
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    },
-    {
-        id: "margalla",
-        name: "Margalla Enclave",
-        location: "Islamabad, Pakistan",
-        description: "Nestled against the beautiful Margalla Hills, Margalla Enclave provides serene living with panoramic views. The society features modern infrastructure, recreational facilities, and a peaceful environment away from city chaos.",
-        features: ["Hill View", "Modern Infrastructure", "Recreational Areas", "Secure Environment", "Peaceful Location"],
-        coordinates: [33.7208, 73.0900],
-        images: [
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    },
-    {
-        id: "orchard",
-        name: "Margalla Orchard",
-        location: "Islamabad, Pakistan",
-        description: "Margalla Orchard is a well-planned agricultural and residential community offering farmhouses and residential plots. With its unique concept of orchard living, it combines modern amenities with natural surroundings.",
-        features: ["Orchard Living", "Farmhouses", "Agricultural Plots", "Natural Environment", "Modern Amenities"],
-        coordinates: [33.6500, 73.1667],
-        images: [
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    },
-    {
-        id: "pha",
-        name: "PHA Officers Residencia",
-        location: "Kurri Road, Islamabad",
-        description: "Exclusively designed for government officers, PHA Officers Residencia offers premium residential facilities with modern infrastructure. Located on Kurri Road, it provides easy access to major city areas while maintaining a peaceful environment.",
-        features: ["Exclusive Society", "Modern Infrastructure", "Government Officers", "Prime Location", "Secure Environment"],
-        coordinates: [33.6667, 73.1667],
-        images: [
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558036117-15e82a2c9a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
+// Main Application Script
+class RealEstateApp {
+    constructor() {
+        this.societies = [
+            {
+                id: "bharia",
+                name: "Bharia Enclave",
+                location: "Islamabad, Pakistan",
+                description: "Bharia Enclave is a premium residential society offering modern amenities and a secure environment. With well-planned infrastructure, lush green parks, and commercial areas, it provides a perfect blend of comfort and convenience for families. The society features wide roads, underground utilities, and excellent security systems.",
+                features: ["Gated Community", "24/7 Security", "Parks & Green Areas", "Commercial Area", "Mosque", "Schools", "Hospital", "Shopping Center", "Wide Roads", "Underground Utilities"],
+                coordinates: [33.6844, 73.0479],
+                images: [
+                    "images/Bahria-Enclave folder/1.jpg",
+                    "images/Bahria-Enclave folder/2.jpg",
+                    "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: "orchard",
+                name: "Margalla Orchards",
+                location: "Islamabad, Pakistan",
+                description: "Margalla Orchards offers a unique living experience with beautifully designed orchard plots. Enjoy fresh air, green surroundings, and modern facilities in this exclusive society. Perfect for those who want to live close to nature while enjoying all modern amenities.",
+                features: ["Orchard Plots", "Modern Infrastructure", "Green Environment", "Secure Society", "Community Center", "Water Supply", "Electricity", "Boundary Wall", "CCTV Security", "Maintenance Staff"],
+                coordinates: [33.6209, 73.1259],
+                images: [
+                    "images/Margalla Orchards folder/1.jpg",
+                    "images/Margalla Orchards folder/2.jpg",
+                    "images/Margalla Orchards folder/3.jpg",
+                    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: "park",
+                name: "Park Enclave",
+                location: "Islamabad, Pakistan",
+                description: "Park Enclave offers luxury living with premium amenities including clubhouse, sports facilities, and beautifully designed landscapes. Its prime location and exclusive environment make it a top choice for elite residents.",
+                features: ["Luxury Villas", "Clubhouse", "Swimming Pool", "Sports Complex", "24/7 Security", "Gym", "Park", "Playground", "Jogging Track", "Community Hall"],
+                coordinates: [33.7091, 73.0531],
+                images: [
+                    "images/Park Enclave folder/1.jpg",
+                    "images/Park Enclave folder/2.jpg",
+                    "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1560448205-97abe0c6f19d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                id: "pha",
+                name: "PHA Officers Residencia",
+                location: "Kurri Road, Islamabad",
+                description: "Exclusively designed for government officers, PHA Officers Residencia offers premium residential facilities with modern infrastructure. Located on Kurri Road, it provides easy access to major city areas while maintaining a peaceful environment.",
+                features: ["Exclusive Society", "Modern Infrastructure", "Government Officers", "Prime Location", "Secure Environment", "Mosque", "Parking", "Parks", "Community Center", "Maintenance"],
+                coordinates: [33.6667, 73.1667],
+                images: [
+                    "images/Pha folder/1.jpg",
+                    "images/Pha folder/2.jpg",
+                    "images/Pha folder/3.jpg",
+                    "images/Pha folder/4.jpg",
+                    "images/Pha folder/5.jpg",
+                    "images/Pha folder/6.jpg"
+                ]
+            }
+        ];
+
+        this.currentSlide = 0;
+        this.map = null;
+        this.init();
     }
-];
 
-// DOM Elements
-let map;
-const societiesContainer = document.querySelector('.societies-container');
-const societyModal = document.getElementById('societyModal');
-const modalClose = document.getElementById('modalClose');
-const modalSocietyName = document.getElementById('modalSocietyName');
-const modalGallery = document.getElementById('modalGallery');
-const modalDescription = document.getElementById('modalDescription');
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const contactForm = document.getElementById('contactForm');
-const footerLinks = document.querySelectorAll('.footer-links a[data-society]');
+    init() {
+        this.setupDOM();
+        this.loadSocieties();
+        this.setupEventListeners();
+        this.setupHeroSlider();
+        this.setupCurrentYear();
+        this.setupScrollAnimations();
+        this.setupBackToTop();
+    }
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-    // Load societies
-    loadSocieties();
+    setupDOM() {
+        this.societiesContainer = document.querySelector('.societies-container');
+        this.societyModal = document.getElementById('societyModal');
+        this.modalClose = document.getElementById('modalClose');
+        this.modalSocietyName = document.getElementById('modalSocietyName');
+        this.modalGallery = document.getElementById('modalGallery');
+        this.modalDescription = document.getElementById('modalDescription');
+        this.modalFeatures = document.getElementById('modalFeatures');
+        this.hamburger = document.getElementById('hamburger');
+        this.navMenu = document.querySelector('.nav-menu');
+        this.navbar = document.querySelector('.navbar');
+        this.backToTop = document.getElementById('backToTop');
+        this.heroSlider = document.getElementById('heroSlider');
+        this.sliderPrev = document.querySelector('.slider-prev');
+        this.sliderNext = document.querySelector('.slider-next');
+    }
 
-    // Setup event listeners
-    setupEventListeners();
+    loadSocieties() {
+        this.societiesContainer.innerHTML = '';
 
-    // Initialize form
-    initializeForm();
+        this.societies.forEach(society => {
+            const card = this.createSocietyCard(society);
+            this.societiesContainer.appendChild(card);
+        });
+    }
 
-    // Animation overlay will auto-remove after 3 seconds (handled by CSS)
-});
+    createSocietyCard(society) {
+        const card = document.createElement('div');
+        card.className = 'society-card';
+        card.setAttribute('data-id', society.id);
 
-// Load societies into the grid
-function loadSocieties() {
-    societies.forEach(society => {
-        const societyCard = createSocietyCard(society);
-        societiesContainer.appendChild(societyCard);
-    });
-}
+        const imageSrc = society.images[0] || 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
 
-// Create society card HTML
-function createSocietyCard(society) {
-    const card = document.createElement('div');
-    card.className = 'society-card';
-    card.setAttribute('data-id', society.id);
-
-    card.innerHTML = `
-        <div class="society-image">
-            <img src="${society.images[0]}" alt="${society.name}" loading="lazy">
-        </div>
-        <div class="society-content">
-            <h3 class="society-name">${society.name}</h3>
-            <div class="society-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>${society.location}</span>
+        card.innerHTML = `
+            <div class="society-image">
+                <img src="${imageSrc}" alt="${society.name}" loading="lazy"
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
             </div>
-            <p class="society-description">${society.description.substring(0, 150)}...</p>
-            <div class="society-features">
-                ${society.features.slice(0, 3).map(feature =>
-                    `<span class="feature-tag">${feature}</span>`
-                ).join('')}
-                ${society.features.length > 3 ?
-                    `<span class="feature-tag">+${society.features.length - 3} more</span>` : ''
-                }
+            <div class="society-content">
+                <h3 class="society-name">${society.name}</h3>
+                <div class="society-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${society.location}</span>
+                </div>
+                <p class="society-description">${society.description.substring(0, 150)}...</p>
+                <div class="society-features">
+                    ${society.features.slice(0, 3).map(feature =>
+                        `<span class="feature-tag">${feature}</span>`
+                    ).join('')}
+                    ${society.features.length > 3 ?
+                        `<span class="feature-tag">+${society.features.length - 3} more</span>` : ''
+                    }
+                </div>
+                <button class="society-button" data-id="${society.id}">
+                    <i class="fas fa-eye"></i> View Details
+                </button>
             </div>
-            <button class="society-button" data-id="${society.id}">
-                <i class="fas fa-eye"></i> View Details
-            </button>
-        </div>
-    `;
+        `;
 
-    return card;
-}
+        return card;
+    }
 
-// Setup event listeners
-function setupEventListeners() {
-    // Society card click
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('society-button') || e.target.closest('.society-button')) {
-            const button = e.target.classList.contains('society-button') ?
-                e.target : e.target.closest('.society-button');
-            const societyId = button.getAttribute('data-id');
-            openSocietyModal(societyId);
-        }
+    setupEventListeners() {
+        // Society card clicks
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.society-button')) {
+                const button = e.target.closest('.society-button');
+                const societyId = button.getAttribute('data-id');
+                this.openSocietyModal(societyId);
+            }
 
-        // Footer society links
-        if (e.target.closest('.footer-links a[data-society]')) {
-            e.preventDefault();
-            const societyId = e.target.closest('a').getAttribute('data-society');
-            openSocietyModal(societyId);
-        }
-    });
+            // Footer society links
+            if (e.target.closest('.footer-links a[data-society]')) {
+                e.preventDefault();
+                const societyId = e.target.closest('a').getAttribute('data-society');
+                this.openSocietyModal(societyId);
+            }
 
-    // Modal close
-    modalClose.addEventListener('click', closeSocietyModal);
-    societyModal.addEventListener('click', function(e) {
-        if (e.target === societyModal) {
-            closeSocietyModal();
-        }
-    });
-
-    // Hamburger menu
-    hamburger.addEventListener('click', toggleMobileMenu);
-
-    // Nav menu links
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                toggleMobileMenu();
+            // Nav menu active state
+            if (e.target.closest('.nav-menu a')) {
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                e.target.closest('.nav-menu a').classList.add('active');
             }
         });
-    });
 
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && societyModal.style.display === 'flex') {
-            closeSocietyModal();
-        }
-    });
-}
+        // Modal close
+        this.modalClose.addEventListener('click', () => this.closeSocietyModal());
+        this.societyModal.addEventListener('click', (e) => {
+            if (e.target === this.societyModal) {
+                this.closeSocietyModal();
+            }
+        });
 
-// Open society modal
-function openSocietyModal(societyId) {
-    const society = societies.find(s => s.id === societyId);
-    if (!society) return;
+        // Hamburger menu
+        this.hamburger.addEventListener('click', () => this.toggleMobileMenu());
 
-    // Update modal content
-    modalSocietyName.textContent = society.name;
-    modalDescription.textContent = society.description;
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!this.hamburger.contains(e.target) && !this.navMenu.contains(e.target)) {
+                    this.hamburger.classList.remove('active');
+                    this.navMenu.classList.remove('active');
+                }
+            }
+        });
 
-    // Clear and load gallery images
-    modalGallery.innerHTML = '';
-    society.images.forEach((imgSrc, index) => {
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        img.alt = `${society.name} - Image ${index + 1}`;
-        img.loading = 'lazy';
-        modalGallery.appendChild(img);
-    });
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.societyModal.classList.contains('active')) {
+                this.closeSocietyModal();
+            }
+        });
 
-    // Initialize or update map
-    if (!map) {
-        initializeMap(society.coordinates);
-    } else {
-        map.setView(society.coordinates, 14);
-    }
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                this.navbar.classList.add('scrolled');
+            } else {
+                this.navbar.classList.remove('scrolled');
+            }
 
-    // Add marker
-    L.marker(society.coordinates)
-        .addTo(map)
-        .bindPopup(`<b>${society.name}</b><br>${society.location}`)
-        .openPopup();
+            // Back to top button
+            if (window.scrollY > 300) {
+                this.backToTop.classList.add('visible');
+            } else {
+                this.backToTop.classList.remove('visible');
+            }
+        });
 
-    // Show modal
-    societyModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-// Initialize map
-function initializeMap(coordinates) {
-    map = L.map('modalMap').setView(coordinates, 14);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 18
-    }).addTo(map);
-}
-
-// Close society modal
-function closeSocietyModal() {
-    societyModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Toggle mobile menu
-function toggleMobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-}
-
-// Initialize contact form
-function initializeForm() {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            society: document.getElementById('society').value,
-            service: document.getElementById('service').value,
-            message: document.getElementById('message').value
-        };
-
-        // Create WhatsApp message
-        const whatsappMessage =
-            `Hello A&S RealEstate!%0A%0A` +
-            `Name: ${formData.name}%0A` +
-            `Phone: ${formData.phone}%0A` +
-            `Interested in: ${formData.society}%0A` +
-            `Service needed: ${formData.service}%0A` +
-            `Message: ${formData.message}`;
-
-        // Open WhatsApp with pre-filled message
-        window.open(`https://wa.me/923111544966?text=${whatsappMessage}`, '_blank');
-
-        // Reset form
-        contactForm.reset();
-
-        // Show success message (optional)
-        alert('Thank you! You will be redirected to WhatsApp to send your inquiry.');
-    });
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
+        // Back to top button
+        this.backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
-                top: targetElement.offsetTop - 80,
+                top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    setupHeroSlider() {
+        if (!this.heroSlider) return;
+
+        const slides = this.heroSlider.querySelectorAll('.slide');
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            this.nextSlide();
+        }, 5000);
+
+        // Previous button
+        this.sliderPrev?.addEventListener('click', () => {
+            this.prevSlide();
+        });
+
+        // Next button
+        this.sliderNext?.addEventListener('click', () => {
+            this.nextSlide();
+        });
+    }
+
+    nextSlide() {
+        const slides = this.heroSlider.querySelectorAll('.slide');
+        slides[this.currentSlide].classList.remove('active');
+        this.currentSlide = (this.currentSlide + 1) % slides.length;
+        slides[this.currentSlide].classList.add('active');
+    }
+
+    prevSlide() {
+        const slides = this.heroSlider.querySelectorAll('.slide');
+        slides[this.currentSlide].classList.remove('active');
+        this.currentSlide = (this.currentSlide - 1 + slides.length) % slides.length;
+        slides[this.currentSlide].classList.add('active');
+    }
+
+    openSocietyModal(societyId) {
+        const society = this.societies.find(s => s.id === societyId);
+        if (!society) return;
+
+        // Update modal content
+        this.modalSocietyName.textContent = society.name;
+        this.modalDescription.textContent = society.description;
+
+        // Clear and load gallery images
+        this.modalGallery.innerHTML = '';
+        society.images.forEach((imgSrc, index) => {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'gallery-item';
+
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `${society.name} - Image ${index + 1}`;
+            img.loading = 'lazy';
+            img.onerror = () => {
+                img.src = 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+            };
+
+            imgContainer.appendChild(img);
+            this.modalGallery.appendChild(imgContainer);
+        });
+
+        // Load features
+        this.modalFeatures.innerHTML = '';
+        society.features.forEach(feature => {
+            const featureTag = document.createElement('span');
+            featureTag.className = 'feature-tag';
+            featureTag.textContent = feature;
+            this.modalFeatures.appendChild(featureTag);
+        });
+
+        // Initialize or update map
+        if (!this.map) {
+            this.initializeMap(society.coordinates);
+        } else {
+            this.map.setView(society.coordinates, 14);
+            this.map.eachLayer((layer) => {
+                if (layer instanceof L.Marker) {
+                    this.map.removeLayer(layer);
+                }
+            });
         }
-    });
-});
 
-// Intersection Observer for animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+        // Add marker
+        L.marker(society.coordinates)
+            .addTo(this.map)
+            .bindPopup(`<b>${society.name}</b><br>${society.location}`)
+            .openPopup();
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
+        // Show modal
+        this.societyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    initializeMap(coordinates) {
+        this.map = L.map('modalMap').setView(coordinates, 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18
+        }).addTo(this.map);
+    }
+
+    closeSocietyModal() {
+        this.societyModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    toggleMobileMenu() {
+        this.hamburger.classList.toggle('active');
+        this.navMenu.classList.toggle('active');
+    }
+
+    setupCurrentYear() {
+        const yearElement = document.getElementById('currentYear');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
         }
-    });
-}, observerOptions);
+    }
 
-// Observe elements for animation
-document.querySelectorAll('.society-card, .service-card').forEach(el => {
-    observer.observe(el);
+    setupScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.society-card, .service-card, .testimonial-card, .featured-card').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    setupBackToTop() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                this.backToTop.classList.add('visible');
+            } else {
+                this.backToTop.classList.remove('visible');
+            }
+        });
+    }
+
+    showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            </div>
+            <button class="notification-close">&times;</button>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Show notification
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 5000);
+
+        // Close button
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        });
+    }
+}
+
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.app = new RealEstateApp();
+
+    // Remove animation overlay after 3 seconds
+    setTimeout(() => {
+        const overlay = document.getElementById('animationOverlay');
+        if (overlay) {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
+        }
+    }, 3000);
 });

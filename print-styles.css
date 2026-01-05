@@ -1,0 +1,221 @@
+/* Print Styles */
+@media print {
+    /* Hide unnecessary elements */
+    .navbar,
+    .quick-contact,
+    .back-to-top,
+    .whatsapp-float,
+    .hero-buttons,
+    .contact-methods,
+    .social-links,
+    .footer-bottom-links,
+    .slider-controls,
+    .society-button,
+    .featured-badge,
+    .method-buttons,
+    .modal-close,
+    .notification {
+        display: none !important;
+    }
+
+    /* Page breaks */
+    .hero,
+    .societies-section,
+    .services-section,
+    .contact-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Typography adjustments */
+    body {
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+        color: #000 !important;
+        background: #fff !important;
+    }
+
+    h1, h2, h3, h4 {
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+
+    .hero-title {
+        font-size: 24pt !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .section-title {
+        font-size: 18pt !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 14pt !important;
+        color: #666 !important;
+    }
+
+    /* Layout adjustments */
+    .hero-container,
+    .contact-container {
+        display: block !important;
+    }
+
+    .hero-image {
+        display: none !important;
+    }
+
+    .hero-stats {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    /* Card styles */
+    .society-card,
+    .service-card,
+    .testimonial-card,
+    .contact-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Links */
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* Contact info */
+    .contact-details a::after {
+        content: "";
+    }
+
+    /* Remove animations */
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Images */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+    }
+
+    /* Modal for printing */
+    .modal-overlay {
+        position: static !important;
+        background: none !important;
+        display: block !important;
+        opacity: 1 !important;
+    }
+
+    .modal-container {
+        box-shadow: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .modal-gallery {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Footer */
+    .footer {
+        background: #fff !important;
+        color: #000 !important;
+        padding-top: 2rem !important;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .footer-links h3,
+    .footer-services h3,
+    .footer-contact h3 {
+        color: #000 !important;
+    }
+
+    .footer-description,
+    .footer-contact li {
+        color: #666 !important;
+    }
+
+    /* Hide decorative elements */
+    .hero-badge,
+    .feature-tag:hover,
+    .btn::after,
+    .section-header::after,
+    .logo-text::after,
+    .nav-menu a::before,
+    .society-card::before,
+    .service-card::before,
+    .testimonial-card::before,
+    .footer-links h3::after,
+    .footer-services h3::after,
+    .footer-contact h3::after {
+        display: none !important;
+    }
+
+    /* Print header and footer */
+    @page {
+        margin: 2cm;
+        @top-center {
+            content: "A&S RealEstate Property Catalog";
+            font-size: 12pt;
+            color: #666;
+        }
+        @bottom-center {
+            content: "Page " counter(page) " of " counter(pages);
+            font-size: 10pt;
+            color: #666;
+        }
+    }
+
+    /* First page adjustments */
+    @page :first {
+        @top-center {
+            content: "";
+        }
+    }
+
+    /* QR Code for website */
+    .print-qr {
+        display: block !important;
+        text-align: center;
+        margin: 2rem 0;
+        padding: 1rem;
+        border-top: 1px solid #ddd;
+    }
+
+    .print-qr img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .print-qr p {
+        font-size: 10pt;
+        color: #666;
+        margin-top: 0.5rem;
+    }
+}
